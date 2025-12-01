@@ -1,13 +1,15 @@
 module "labels" {
-  source      = "navneetbishnoi/labels/multicloud"
-  version     = "1.0.0"
+  source      = "git::https://github.com/navneetbishnoi/terraform-aws-labels.git?ref=v1.0.4"
   name        = var.name
+  repository  = var.repository
   environment = var.environment
   managedby   = var.managedby
   label_order = var.label_order
-  repository  = var.repository
+  extra_tags = {
+    Owner      = "navneetbishnoi"
+    CostCenter = "Finance"
+  }
 }
-
 ##-----------------------------------------------------------------------------
 ## Below resource will deploy new security group in aws.
 ##-----------------------------------------------------------------------------
